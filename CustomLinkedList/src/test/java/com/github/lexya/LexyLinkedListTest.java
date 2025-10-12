@@ -1,4 +1,5 @@
-import com.github.lexya.LexyLinkedList;
+package com.github.lexya;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 
