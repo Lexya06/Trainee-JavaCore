@@ -4,10 +4,10 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Customer {
-    private String customerId;
-    private String name;
-    private String email;
-    private LocalDateTime registeredAt;
+    private final String customerId;
+    private  String name;
+    private  String email;
+    private final LocalDateTime registeredAt;
     private int age;
     private String city;
 

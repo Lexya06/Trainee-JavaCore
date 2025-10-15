@@ -33,6 +33,10 @@ public class OrderItem {
         this.quantity = quantity;
     }
 
+    public void setOrderCategory(OrderCategory OrderCategory) {
+        this.OrderCategory = OrderCategory;
+    }
+
     public double getPrice() {
         return price;
     }
