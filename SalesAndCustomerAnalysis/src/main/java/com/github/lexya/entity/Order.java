@@ -1,4 +1,4 @@
-package com.github.lexya;
+package com.github.lexya.entity;
 
 import java.time.LocalDateTime;
 import java.util.LinkedList;
@@ -8,8 +8,8 @@ public class Order {
     private final String orderId;
     private final LocalDateTime orderDate;
     private final Customer customer;
-    private List<OrderItem> items;
-    private OrderStatus status;
+    private final List<OrderItem> items;
+    private final OrderStatus status;
 
     public Order(String orderId, LocalDateTime orderDate, Customer customer, List<OrderItem> items, OrderStatus status) {
         this.orderId = orderId;
@@ -23,21 +23,14 @@ public class Order {
         return status;
     }
 
-    public void setStatus(OrderStatus status) {
-        this.status = status;
-    }
-
     public String getOrderId() {
         return orderId;
     }
 
-    public LocalDateTime getOrderDate(LocalDateTime orderDate) {
+    public LocalDateTime getOrderDate() {
         return this.orderDate;
     }
 
-    public void setOrderItems(List<OrderItem> orderItems) {
-        this.items = orderItems;
-    }
 
     public Customer getCustomer() {
         return customer;

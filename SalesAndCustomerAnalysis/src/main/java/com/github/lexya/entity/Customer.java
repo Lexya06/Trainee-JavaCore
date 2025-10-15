@@ -1,15 +1,15 @@
-package com.github.lexya;
+package com.github.lexya.entity;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Customer {
     private final String customerId;
-    private  String name;
-    private  String email;
+    private final String name;
+    private final String email;
     private final LocalDateTime registeredAt;
-    private int age;
-    private String city;
+    private final int age;
+    private final String city;
 
     public Customer(String customerId, String name, String email, LocalDateTime registeredAt, int age, String city) {
         this.customerId = customerId;
@@ -44,9 +44,6 @@ public class Customer {
         return city;
     }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
 
     @Override
     public boolean equals(Object o) {

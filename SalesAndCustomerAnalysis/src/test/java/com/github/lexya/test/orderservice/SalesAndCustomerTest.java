@@ -4,10 +4,8 @@ import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.github.lexya.*;
-
-import static com.github.lexya.orderservice.OrderService.*;
-
+import com.github.lexya.entity.*;
+import com.github.lexya.service.OrderService;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -15,6 +13,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class SalesAndCustomerTest {
     static List<Order> orders = createTestOrders();
+    OrderService orderService;
+
+    public SalesAndCustomerTest() {
+        orderService = new OrderService();
+    }
 
     public static List<Order> createTestOrders() {
         List<Order> orders = new LinkedList<>();
@@ -91,7 +94,7 @@ public class SalesAndCustomerTest {
 
     @Test
     public void testUniqueCustomerCities() {
-        List<String> uniqueCities = calculateUniqueCustomerCities(orders);
+        List<String> uniqueCities = orderService.calculateUniqueCustomerCities(orders);
         assertEquals(3, uniqueCities.size());
         assertTrue(uniqueCities.containsAll(List.of("Москва", "Санкт-Петербург", "Екатеринбург")));
     }
@@ -115,17 +118,17 @@ public class SalesAndCustomerTest {
         double expectedPrice = getPriceFromOrdersItemsList(indexes);
 
         // Expected price calculated from all delivered orders (items from them)
-        assertEquals(expectedPrice, totalCompletedOrdersIncome(orders));
+        assertEquals(expectedPrice, orderService.totalCompletedOrdersIncome(orders));
     }
 
     @Test
     public void theMostPopularProduct() {
-        assertEquals("AirPods", theMostPopularProductName(orders));
+        assertEquals("AirPods", orderService.theMostPopularProductName(orders));
     }
 
     @Test
     public void testGetCustomersByOrdersCount() {
-        List<Customer> customers = getCustomersByOrdersCount(orders, 5);
+        List<Customer> customers = orderService.getCustomersByOrdersCount(orders, 5);
         assertEquals(1, customers.size());
         assertEquals("CUST001", customers.get(0).getCustomerId());
     }
@@ -142,7 +145,7 @@ public class SalesAndCustomerTest {
 
     @Test
     public void testDeliveredOrdersPercentage() {
-        assertEquals(countDeliveredOrdersPercentage(), deliveredOrdersPercentage(orders));
+        assertEquals(countDeliveredOrdersPercentage(), orderService.deliveredOrdersPercentage(orders));
     }
 
 

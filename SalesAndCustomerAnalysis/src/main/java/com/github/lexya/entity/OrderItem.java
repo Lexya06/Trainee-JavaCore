@@ -1,10 +1,10 @@
-package com.github.lexya;
+package com.github.lexya.entity;
 
 public class OrderItem {
-    private String productName;
-    private int quantity;
-    private double price;
-    private OrderCategory OrderCategory;
+    private final String productName;
+    private final int quantity;
+    private final double price;
+    private final OrderCategory OrderCategory;
 
     public OrderItem(String productName, int quantity, double price, OrderCategory OrderCategory) {
         this.productName = productName;
@@ -27,14 +27,6 @@ public class OrderItem {
 
     public OrderCategory getOrderCategory() {
         return OrderCategory;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public void setOrderCategory(OrderCategory OrderCategory) {
-        this.OrderCategory = OrderCategory;
     }
 
     public double getPrice() {
