@@ -130,7 +130,7 @@ public class MiniApplicationContext {
                 return classes;
             }
             return fileProcessing(directory, packageName, classes);
-        } catch (URISyntaxException e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
 

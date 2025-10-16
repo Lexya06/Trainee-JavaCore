@@ -22,5 +22,5 @@ public class Ball implements InitializingBean {
         endSpeed = 30;
     }
 
-    
+
 }
